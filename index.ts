@@ -128,6 +128,18 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+    case "Citizenship": {
+      if (!credentialSubject.citizenship)
+        throw new Error("Invalid citizienship credential");
+      return {
+        Citizenship : {
+          text: credentialSubject.citizenship,
+          prefix: {
+            en: "Citizenship",
+          },
+        },
+      };
+    }
     default:
       throw new Error("Invalid schema");
   }
