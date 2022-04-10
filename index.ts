@@ -132,7 +132,7 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
       if (!credentialSubject.citizenship)
         throw new Error("Invalid citizienship credential");
       return {
-        Citizenship : {
+        Citizenship: {
           text: credentialSubject.citizenship,
           prefix: {
             en: "Citizenship",
@@ -140,6 +140,57 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+    case "Age": {
+      if (!credentialSubject.age)
+        throw new Error("Invalid age credential");
+      return {
+        Age: {
+          text: credentialSubject.age,
+          prefix: {
+            en: "Age",
+          },
+        },
+      };
+    }
+    case "AverageMonthlyIncome": {
+      if (!credentialSubject.averageMonthlyIncome)
+        throw new Error("Invalid Average Monthly Income credential");
+      return {
+        AverageMonthlyIncome: {
+          text: credentialSubject.averageMonthlyIncome,
+          prefix: {
+            en: "Average Monthly Income",
+          },
+        },
+      };
+    }
+    case "AverageMonthlyRest": {
+      if (!credentialSubject.averageMonthlyRest)
+        throw new Error("Invalid Average Monthly Rest credential");
+      return {
+        AverageMonthlyRest: {
+          text: credentialSubject.averageMonthlyRest,
+          prefix: {
+            en: "Average Monthly Rest",
+          },
+        },
+      };
+    }
+
+    case "SavingPercentage": {
+      if (!credentialSubject.savingPercentage)
+        throw new Error("Invalid Saving Percentage credential");
+      return {
+        SavingPercentage: {
+          text: credentialSubject.savingPercentage,
+          prefix: {
+            en: "Saving Percentage",
+          },
+        },
+      };
+    }
+
+
     default:
       throw new Error("Invalid schema");
   }
