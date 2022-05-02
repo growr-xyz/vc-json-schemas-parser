@@ -1,6 +1,6 @@
 {
   "name": "@growr/vc-json-schemas-parser",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A parser for VC JSON Schemas compliant credentials",
   "main": "lib/index.js",
   "files": [
