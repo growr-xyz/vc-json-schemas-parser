@@ -21,7 +21,7 @@
     "json-schema"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/growr-xyz/vc-json-schemas-parser/issues"
   },

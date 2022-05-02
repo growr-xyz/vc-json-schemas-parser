@@ -116,7 +116,7 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
-    case "hasKYC": {
+    case "HasKYC": {
       if (!credentialSubject.hasKYC)
         throw new Error("Invalid passed KYC credential");
       return {
