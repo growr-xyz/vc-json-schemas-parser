@@ -201,7 +201,18 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
-
+    case "AgriFinCoop": {
+      if (!credentialSubject.agriFinCoop)
+        throw new Error("Invalid AgriFinCoop credential");
+      return {
+        AgriFinCoop: {
+          text: credentialSubject.agriFinCoop,
+          prefix: {
+            en: "AgriFin Cooperative",
+          },
+        },
+      };
+    }
     default:
       throw new Error("Invalid schema");
   }
