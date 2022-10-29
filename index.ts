@@ -213,6 +213,20 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+    
+    case "LandSize": {
+      if (!credentialSubject.landSize)
+          throw new Error("Invalid LandSize credential");
+      return {
+          LandSize: {
+              text: credentialSubject.landSize,
+              prefix: {
+                  en: "Land Size",
+              },
+          },
+      };
+  }
+
     default:
       throw new Error("Invalid schema");
   }
