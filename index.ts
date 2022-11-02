@@ -227,6 +227,31 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
       };
   }
 
+  case "maritalStatus": {
+    if (!credentialSubject.maritalStatus)
+        throw new Error("Invalid MaritalStatus credential");
+    return {
+        LandSize: {
+            text: credentialSubject.maritalStatus,
+            prefix: {
+                en: "Marital Status",
+            },
+        },
+    };
+}
+  case "SavingsAndCreditCoop": {
+    if (!credentialSubject.savingsAndCreditCoop)
+        throw new Error("Invalid SavingsAndCreditCoop credential");
+    return {
+        LandSize: {
+            text: credentialSubject.savingsAndCreditCoop,
+            prefix: {
+                en: "Savings And Credit Cooperative (SACCO)",
+            },
+        },
+    };
+}
+
     default:
       throw new Error("Invalid schema");
   }
