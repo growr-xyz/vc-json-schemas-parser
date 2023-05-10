@@ -247,6 +247,32 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+    case "CropCount": {
+      if (!credentialSubject.cropCount)
+        throw new Error("Invalid CropCount credential");
+      return {
+        SavingsAndCreditCoop: {
+          text: credentialSubject.cropCount,
+          prefix: {
+            en: "Crop Count",
+          },
+        },
+      };
+    }
+
+    case "MaxRecommendedInput": {
+      if (!credentialSubject.cropCount)
+        throw new Error("Invalid CropCount credential");
+      return {
+        SavingsAndCreditCoop: {
+          text: credentialSubject.maxRecommendedInput,
+          prefix: {
+            en: "Max Recommended Input",
+          },
+        },
+      };
+    }
+
     default:
       throw new Error("Invalid schema");
   }
