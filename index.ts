@@ -235,6 +235,7 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+
     case "SavingsAndCreditCoop": {
       if (!credentialSubject.savingsAndCreditCoop)
         throw new Error("Invalid SavingsAndCreditCoop credential");
@@ -247,11 +248,12 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
         },
       };
     }
+
     case "CropCount": {
       if (!credentialSubject.cropCount)
         throw new Error("Invalid CropCount credential");
       return {
-        SavingsAndCreditCoop: {
+        CropCount: {
           text: credentialSubject.cropCount,
           prefix: {
             en: "Crop Count",
@@ -261,10 +263,10 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
     }
 
     case "MaxRecommendedInput": {
-      if (!credentialSubject.cropCount)
-        throw new Error("Invalid CropCount credential");
+      if (!credentialSubject.maxRecommendedInput)
+        throw new Error("Invalid MaxRecommendedInput credential");
       return {
-        SavingsAndCreditCoop: {
+        MaxRecommendedInput: {
           text: credentialSubject.maxRecommendedInput,
           prefix: {
             en: "Max Recommended Input",
