@@ -275,6 +275,46 @@ function parseVerifiableCredential(schema: string, payload: JWTPayload) {
       };
     }
 
+    case "MinRecommendedInput": {
+      if (!credentialSubject.minRecommendedInput)
+        throw new Error("Invalid MinRecommendedInput credential");
+      return {
+        MinRecommendedInput: {
+          text: credentialSubject.minRecommendedInput,
+          prefix: {
+            en: "Min Recommended Input",
+          },
+        },
+      };
+    }
+
+    case "regionName": {
+      if (!credentialSubject.regionName)
+        throw new Error("Invalid Region Name credential");
+      return {
+        RegionName: {
+          text: credentialSubject.regionName,
+          prefix: {
+            en: "Region Name",
+          },
+        },
+      };
+    }
+
+    case "loanDate": {
+      if (!credentialSubject.loanDate)
+        throw new Error("Invalid Region Name credential");
+      return {
+        LoanDate: {
+          text: credentialSubject.loanDate,
+          prefix: {
+            en: "Loan Date",
+          },
+        },
+      };
+    }
+
+
     default:
       throw new Error("Invalid schema");
   }
